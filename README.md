@@ -11,7 +11,7 @@ Controle o Supercat, desvie de chuvas de tiros e derrote cinco chefes seguidos u
 ![Pygame](https://img.shields.io/badge/pygame--ce-2.5-00B140)
 ![Status](https://img.shields.io/badge/status-beta%20(Sprint%2003)-F5A13A)
 
-<img src="docs/gameplay.gif" alt="Gameplay: o Supercat derrota o primeiro chefe, pega a ração e começa a luta contra o segundo" width="720">
+<img src="docs/gameplay.gif" alt="Gameplay: o Supercat enfrenta o PATADÃO, faz ele entrar em fúria, derrota o chefe, pega a ração e começa a luta contra o DR. MIAUSTEIN" width="720">
 
 </div>
 
@@ -21,7 +21,12 @@ Controle o Supercat, desvie de chuvas de tiros e derrote cinco chefes seguidos u
 
 *Supercat: Boss Rush* é um jogo de ação com visão de cima em que o jogador enfrenta **apenas chefes**, um atrás do outro. Cada chefe tem um padrão de ataque próprio e, ao ser derrotado, deixa um **power-up** que deixa o Supercat mais forte para a próxima luta.
 
-O projeto foi desenvolvido durante a **Sprint 03** como protótipo jogável. Saímos do zero e chegamos a uma versão beta com o jogo completo do início ao fim, o personagem animado e power-ups com arte própria. Os chefes são gatos supervilões em pixel art feitos no Aseprite: o lutador mascarado **PATADÃO**, o cientista maluco **DR. MIAUSTEIN** com seus ratos de corda e a rainha **RAINHA MIAUGIA** na sua caixa mágica Cada chefe tem sua própria arena (o ringue do PATADÃO, o laboratório do DR. MIAUSTEIN, o salão do trono da rainha, o telhado do SOMBRA e a sala de estar da MADAME ASPIRINA) e seu próprio tiro (espinhas de peixe, pontinhos de laser, novelos de lã, garras e bolas de poeira), e o Supercat voa com a capa esvoaçando. Os arquivos editáveis ficam em `assets/aseprite/`.
+O projeto começou na **Sprint 03** como protótipo e hoje é uma versão beta completa, do menu à tela de vitória. Os **5 chefes são gatos supervilões** em pixel art feitos no Aseprite, cada um com sua arena, seu tiro e uma **fase de fúria** quando a vida chega na metade. Os arquivos editáveis da arte ficam em `assets/aseprite/`.
+
+<p align="center">
+  <img src="docs/screenshots/menu.png" alt="Menu inicial com o Supercat voando e os 5 chefes" width="49%">
+  <img src="docs/screenshots/como_jogar.png" alt="Tela Como jogar com os controles e o que cada chefe faz na fúria" width="49%">
+</p>
 
 ## Como jogar
 
@@ -72,9 +77,26 @@ O jogo começa num **menu** (Jogar / Como jogar / Sair). Cada chefe entra caindo
 | 5 | **MADAME ASPIRINA**, a Duquesa da Faxina | 600 | Gata persa num **robô aspirador** que anda reto e quica nas paredes. **Aspira o Supercat** (voe contra!) e cospe **bolas de poeira que se dividem**. **Fúria:** modo turbo, aspira mais vezes, espiral de poeira enquanto suga e poeira a cada batida |
 
 <p align="center">
-  <img src="docs/screenshots/onda1_prisma.png" alt="Onda 1: Prisma" width="32%">
-  <img src="docs/screenshots/onda2_orbital.png" alt="Onda 2: Orbital com drones" width="32%">
-  <img src="docs/screenshots/onda3_nucleo.png" alt="Onda 3: Núcleo" width="32%">
+  <img src="docs/sprites/chefes.png" alt="Os 5 chefes no visual normal (em cima) e em fúria (embaixo)" width="100%">
+</p>
+
+| Fase 1 | Fúria |
+|:---:|:---:|
+| <img src="docs/screenshots/onda1_patadao.png" alt="Onda 1: PATADÃO no ringue" width="100%"> | <img src="docs/screenshots/onda1_patadao_furia.png" alt="Onda 1: PATADÃO em fúria, furacão de espinhas" width="100%"> |
+| **Onda 1: PATADÃO**, no ringue | Furacão de espinhas de peixe |
+| <img src="docs/screenshots/onda2_miaustein.png" alt="Onda 2: DR. MIAUSTEIN no laboratório" width="100%"> | <img src="docs/screenshots/onda2_miaustein_furia.png" alt="Onda 2: DR. MIAUSTEIN em fúria, varredura de laser" width="100%"> |
+| **Onda 2: DR. MIAUSTEIN** e os ratos de corda | Varredura de laser em 3 braços |
+| <img src="docs/screenshots/onda3_miaugia.png" alt="Onda 3: RAINHA MIAUGIA no salão do trono" width="100%"> | <img src="docs/screenshots/onda3_miaugia_furia.png" alt="Onda 3: RAINHA MIAUGIA em fúria" width="100%"> |
+| **Onda 3: RAINHA MIAUGIA**, no salão do trono | Anéis alternados e novelos teleguiados |
+| <img src="docs/screenshots/onda4_sombra.png" alt="Onda 4: SOMBRA no telhado lançando garras" width="100%"> | <img src="docs/screenshots/onda4_sombra_furia.png" alt="Onda 4: SOMBRA em fúria" width="100%"> |
+| **Onda 4: SOMBRA**, no telhado | Leques de 5 garras e olhos falsos |
+| <img src="docs/screenshots/onda5_aspirina.png" alt="Onda 5: MADAME ASPIRINA aspirando o Supercat" width="100%"> | <img src="docs/screenshots/onda5_aspirina_furia.png" alt="Onda 5: MADAME ASPIRINA em fúria, modo turbo" width="100%"> |
+| **Onda 5: MADAME ASPIRINA**, aspirando o Supercat | Modo turbo com espiral de poeira |
+
+Tiros e lacaios: ratos de corda (orbitando e atacando), espinha de peixe, laser, novelo, garra e bola de poeira.
+
+<p align="center">
+  <img src="docs/sprites/tiros.png" alt="Ratos de corda e os tiros de cada chefe" width="560">
 </p>
 
 ## Direção de arte
@@ -82,7 +104,7 @@ O jogo começa num **menu** (Jogar / Como jogar / Sair). Cada chefe entra caindo
 - **Pixel sempre nítido:** a tela é ampliada sem suavização (nada de borrão em tela cheia) e todo texto usa a fonte pixel **Silkscreen** (licença OFL, em `assets/fontes/`).
 - **HUD em pixel art:** corações com meia-vida, retrato do chefe (muda na fúria), moldura da barra de vida com marca da metade e indicador de ondas com patinhas.
 - **Luz:** brilho aditivo nos tiros, luz colorida embaixo de cada chefe, vinheta nas bordas.
-- **Cenários vivos:** holofotes e flashes de câmera no ringue, luzes piscando e tubos borbulhando no laboratório, velas tremulando no salão do trono.
+- **Cenários vivos:** holofotes e flashes de câmera no ringue, luzes piscando e tubos borbulhando no laboratório, velas tremulando no salão do trono, lua e estrelas no telhado, raios de sol na sala de estar.
 - **Efeitos animados feitos no Aseprite:** poeira, explosão, faísca de impacto, brilhos e a almofada de veludo dos power-ups.
 
 ## Power-ups
@@ -112,7 +134,8 @@ Animações e efeitos:
 - Tranco e puff de pelo a cada tiro; as bolas de pelo giram e deixam rastro
 - Ao tomar dano: pisca em vermelho, solta faíscas e a tela treme
 - Coraçõezinhos quando está feliz
-- Chefes piscam ao levar tiro e explodem em partículas ao morrer
+- Capa esvoaçando e patinhas batendo (4 quadros de voo por expressão)
+- Chefes piscam ao levar tiro, ficam com olhos em X na derrota e explodem
 
 <p align="center">
   <img src="docs/screenshots/tela_derrota.png" alt="Tela de derrota" width="48%">
@@ -123,17 +146,20 @@ Animações e efeitos:
 
 ```
 .
-├── bossrush.py          # jogo completo (loop, jogador, chefes, power-ups, efeitos)
-├── assets/              # sprites em pixel art (50×50)
-│   ├── gato_normal.png
-│   ├── gato_feliz.png
-│   ├── gato_triste.png
-│   ├── bola_de_pelo.png
-│   ├── bolas_de_pelo_triplas.png
-│   ├── erva_de_gato.png
-│   ├── racao.png
-│   └── coracao.png
-└── docs/                # imagens usadas neste README
+├── bossrush.py              # jogo completo (menu, loop, jogador, chefes, power-ups, efeitos, HUD)
+├── assets/
+│   ├── gato_*.png           # Supercat parado (normal, feliz, triste)
+│   ├── supercat_voando.png  # 12 quadros de voo (4 por expressão)
+│   ├── boss_*.png           # os 5 chefes (parado, ataque, fúria, derrota)
+│   ├── drone.png            # ratos de corda do DR. MIAUSTEIN
+│   ├── tiro_*.png           # tiros de cada chefe
+│   ├── cenario_*.png        # as 5 arenas
+│   ├── hud_*.png, fx_*.png, prop_*.png   # HUD, efeitos animados e objetos de cenário
+│   ├── racao.png, erva_de_gato.png, bolas_de_pelo_triplas.png, coracao.png
+│   ├── aseprite/            # arquivos .aseprite editáveis de toda a arte nova
+│   └── fontes/              # fonte pixel Silkscreen (licença OFL)
+├── ferramentas_aseprite/    # scripts Lua que geram a arte dentro do Aseprite
+└── docs/                    # imagens usadas neste README
 ```
 
 ### Detalhes técnicos
@@ -144,14 +170,19 @@ Animações e efeitos:
 - **Dano centralizado** em `PlayerShip.take_damage()`, que também troca a expressão do gato.
 - **Sprites ampliados sem filtro** (`pygame.transform.scale`), mantendo o pixel art nítido.
 - Os ajustes de animação ficam em constantes no topo do arquivo (`CAT_SCALE`, `TURN_TIME`, `BOB_AMP`, `TILT_MAX`, `MAX_PARTICLES`…).
+- **Chefes com uma base comum** (`BossBase`): entrada caindo do céu, transformação de fúria na metade da vida, animação de derrota, achatar ao levar tiro e barra de vida com rastro.
+- **Fallback sem arte:** se algum PNG faltar, aquele elemento volta a ser desenhado com formas simples em vez de quebrar o jogo.
 
 ## Próximos passos
 
-- [ ] Usar o coração como vida no HUD, no lugar dos blocos
-- [ ] Arte dos 3 chefes, dos drones e da arena
-- [ ] Balancear o dano do jogador e definir o número de drones
-- [ ] Nomes finais dos chefes e cor própria na barra de vida de cada um
-- [ ] Sons e menu inicial
+- [x] Usar o coração como vida no HUD, no lugar dos blocos
+- [x] Arte dos chefes, dos drones e das arenas
+- [x] Nomes finais dos chefes e cor própria na barra de vida de cada um
+- [x] Menu inicial
+- [x] Fase de fúria para cada chefe
+- [ ] Sons e música
+- [ ] Balancear o dano do jogador e a vida de cada chefe com playtests
+- [ ] Placar com o tempo da corrida
 
 ## Equipe
 
