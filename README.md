@@ -5,7 +5,7 @@
 # Supercat: Boss Rush
 
 **Um boss rush 2D em pixel art feito em Python + Pygame.**
-Controle o Supercat, desvie de chuvas de tiros e derrote três chefes seguidos usando bolas de pelo.
+Controle o Supercat, desvie de chuvas de tiros e derrote cinco chefes seguidos usando bolas de pelo.
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
 ![Pygame](https://img.shields.io/badge/pygame--ce-2.5-00B140)
@@ -21,7 +21,7 @@ Controle o Supercat, desvie de chuvas de tiros e derrote três chefes seguidos u
 
 *Supercat: Boss Rush* é um jogo de ação com visão de cima em que o jogador enfrenta **apenas chefes**, um atrás do outro. Cada chefe tem um padrão de ataque próprio e, ao ser derrotado, deixa um **power-up** que deixa o Supercat mais forte para a próxima luta.
 
-O projeto foi desenvolvido durante a **Sprint 03** como protótipo jogável. Saímos do zero e chegamos a uma versão beta com o jogo completo do início ao fim, o personagem animado e power-ups com arte própria. Os chefes ainda são formas geométricas, que já funcionam como as hitboxes do jogo final.
+O projeto foi desenvolvido durante a **Sprint 03** como protótipo jogável. Saímos do zero e chegamos a uma versão beta com o jogo completo do início ao fim, o personagem animado e power-ups com arte própria. Os chefes são gatos supervilões em pixel art feitos no Aseprite: o lutador mascarado **PATADÃO**, o cientista maluco **DR. MIAUSTEIN** com seus ratos de corda e a rainha **RAINHA MIAUGIA** na sua caixa mágica Cada chefe tem sua própria arena (o ringue do PATADÃO, o laboratório do DR. MIAUSTEIN, o salão do trono da rainha, o telhado do SOMBRA e a sala de estar da MADAME ASPIRINA) e seu próprio tiro (espinhas de peixe, pontinhos de laser, novelos de lã, garras e bolas de poeira), e o Supercat voa com a capa esvoaçando. Os arquivos editáveis ficam em `assets/aseprite/`.
 
 ## Como jogar
 
@@ -50,20 +50,40 @@ python bossrush.py
 | `P` ou `Esc` | Pausar |
 | `F11` | Tela cheia (sem distorcer a imagem) |
 | `R` | Reiniciar |
+| `M` | Voltar ao menu (no pause e no fim de jogo) |
+| `F1` | Liga/desliga o **modo de teste** (dano x10) |
+
+### Modo de teste
+
+Pra testar os chefes rápido, aperte **F1** (no menu ou durante a luta): as bolas de pelo passam a causar **10x mais dano** e aparece o selo "MODO TESTE" no canto da tela. Aperte F1 de novo pra desligar.
+No começo do `bossrush.py` dá pra ajustar o multiplicador (`DANO_MODO_TESTE`) ou deixar o modo ligado já ao abrir o jogo (`MODO_TESTE = True`).
 
 ## Os chefes
 
+O jogo começa num **menu** (Jogar / Como jogar / Sair). Cada chefe entra caindo do céu e, quando a vida chega na **metade**, entra em **FÚRIA**: muda de visual, a arena fica avermelhada e ele ganha ataques novos.
+
+
 | Onda | Chefe | Vida | Como ataca |
 |:---:|---|:---:|---|
-| 1 | **Prisma** | 280 | Leque de 8 tiros mirados e um **salto** sobre o jogador que termina num anel de tiros |
-| 2 | **Orbital** | 360 | Rajadas de 6 tiros e até **4 drones** que orbitam e depois investem contra o jogador |
-| 3 | **Núcleo** | 480 | Anel de 12 tiros a cada 1,5 s e um trio de tiros mirados |
+| 1 | **PATADÃO** | 280 | Leque de 8 espinhas de peixe e um **salto** que termina num anel de tiros. **Fúria:** combo de 3 pulos e furacão de espinhas em espiral |
+| 2 | **DR. MIAUSTEIN** | 360 | Rajadas de 6 lasers e até **4 ratos de corda** que orbitam e investem. **Fúria:** varredura de laser em 3 braços (com aviso), rajadas de 10 e até 6 ratos mais rápidos |
+| 3 | **RAINHA MIAUGIA** | 480 | Anel de 12 novelos e um trio mirado. **Fúria:** teletransporte pela arena, anéis de 16 alternados e novelos teleguiados |
+| 4 | **SOMBRA**, o Gato Ninja | 520 | **Persegue** devagar lançando **leques de 3 garras**; depois **some**, mostra os **olhos brilhando** onde vai surgir e reaparece soltando um **anel de 8 garras** (só leva dano quando está visível). **Fúria:** mais rápido, leques de 5, anel de 12, **olhos falsos** de isca e às vezes some duas vezes seguidas |
+| 5 | **MADAME ASPIRINA**, a Duquesa da Faxina | 600 | Gata persa num **robô aspirador** que anda reto e quica nas paredes. **Aspira o Supercat** (voe contra!) e cospe **bolas de poeira que se dividem**. **Fúria:** modo turbo, aspira mais vezes, espiral de poeira enquanto suga e poeira a cada batida |
 
 <p align="center">
   <img src="docs/screenshots/onda1_prisma.png" alt="Onda 1: Prisma" width="32%">
   <img src="docs/screenshots/onda2_orbital.png" alt="Onda 2: Orbital com drones" width="32%">
   <img src="docs/screenshots/onda3_nucleo.png" alt="Onda 3: Núcleo" width="32%">
 </p>
+
+## Direção de arte
+
+- **Pixel sempre nítido:** a tela é ampliada sem suavização (nada de borrão em tela cheia) e todo texto usa a fonte pixel **Silkscreen** (licença OFL, em `assets/fontes/`).
+- **HUD em pixel art:** corações com meia-vida, retrato do chefe (muda na fúria), moldura da barra de vida com marca da metade e indicador de ondas com patinhas.
+- **Luz:** brilho aditivo nos tiros, luz colorida embaixo de cada chefe, vinheta nas bordas.
+- **Cenários vivos:** holofotes e flashes de câmera no ringue, luzes piscando e tubos borbulhando no laboratório, velas tremulando no salão do trono.
+- **Efeitos animados feitos no Aseprite:** poeira, explosão, faísca de impacto, brilhos e a almofada de veludo dos power-ups.
 
 ## Power-ups
 
@@ -74,6 +94,7 @@ Depois de cada chefe aparece um power-up no centro da arena. Pegar o item libera
 | <img src="docs/sprites/racao.png" height="56" alt="Ração"> | **Ração** | **+Fire rate**: atira mais rápido |
 | <img src="docs/sprites/erva_de_gato.png" height="56" alt="Erva-de-gato"> | **Erva-de-gato** | **+Damage**: +3 de dano por tiro |
 | <img src="docs/sprites/bolas_de_pelo_triplas.png" height="56" alt="Três bolas de pelo"> | **3 bolas de pelo** | **+Range & size**: tiros vão mais longe e ficam maiores |
+| <img src="docs/sprites/coracao.png" height="40" alt="Coração"> | **Coração** | **+Vida**: recupera 3 corações (aparece depois da onda 3) |
 
 ## O Supercat
 
